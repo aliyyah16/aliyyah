@@ -1,0 +1,226 @@
+:root {
+  --paper: #eef1ee;
+  --ink: #16233b;
+  --muted: #55627a;
+  --line: #c9d1cc;
+  --accent: #2b4eff;
+  --mark: #ffd84a;
+  --font-head: "Bricolage Grotesque", "Segoe UI", sans-serif;
+  --font-body: "Instrument Sans", "Segoe UI", sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 0;
+}
+
+.brand {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 1.15rem;
+  text-decoration: none;
+}
+
+.site-header nav { display: flex; gap: 1.5rem; }
+
+.site-header nav a {
+  text-decoration: none;
+  color: var(--muted);
+}
+
+.site-header nav a:hover { color: var(--accent); }
+
+/* ---------- Layout ---------- */
+main {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section { padding: 4.5rem 0 1rem; }
+
+h1, h2 {
+  font-family: var(--font-head);
+  line-height: 1.05;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- Hero ---------- */
+.hero { padding: 6rem 0 3rem; }
+
+.hero h1 {
+  font-size: clamp(2.6rem, 8vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  max-width: 16ch;
+  background: linear-gradient(transparent 62%, var(--mark) 62%, var(--mark) 92%, transparent 92%);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  animation: sorot 0.9s 0.3s ease-out forwards;
+}
+
+@keyframes sorot { to { background-size: 100% 100%; } }
+
+.lead {
+  max-width: 38rem;
+  margin: 1.75rem 0 2rem;
+  font-size: 1.2rem;
+  color: var(--muted);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 0.4rem;
+  transition: background 0.2s;
+}
+
+.btn:hover { background: var(--accent); }
+
+/* ---------- Proyek ---------- */
+.projects {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.projects li { border-bottom: 1px solid var(--line); }
+
+.projects a {
+  display: grid;
+  grid-template-columns: 4rem 1fr auto;
+  gap: 1.5rem;
+  align-items: baseline;
+  padding: 1.5rem 0.5rem;
+  text-decoration: none;
+  transition: background 0.2s, padding-left 0.2s;
+}
+
+.projects a:hover {
+  background: #e3e8e4;
+  padding-left: 1rem;
+}
+
+.year { color: var(--muted); }
+
+.p-body strong {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.p-body span { color: var(--muted); }
+
+.stack { color: var(--accent); font-weight: 500; text-align: right; }
+
+/* ---------- Tentang ---------- */
+.about-text { max-width: 40rem; }
+
+.about-text p { margin: 0 0 1rem; }
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+
+.skills li {
+  padding: 0.35rem 0.9rem;
+  border: 1.5px solid var(--ink);
+  border-radius: 2rem;
+  font-weight: 500;
+}
+
+/* ---------- Kontak ---------- */
+.contact p { max-width: 34rem; margin: 0 0 1rem; color: var(--muted); }
+
+.mail {
+  display: inline-block;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: clamp(1.6rem, 5vw, 2.8rem);
+  text-decoration-color: var(--mark);
+  text-decoration-thickness: 0.3rem;
+  text-underline-offset: 0.35rem;
+  word-break: break-all;
+}
+
+.mail:hover { color: var(--accent); }
+
+.links { display: flex; gap: 1.5rem; margin-top: 1.5rem !important; }
+
+.links a:hover { color: var(--accent); }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  max-width: 62rem;
+  margin: 4rem auto 0;
+  padding: 1.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.site-footer p { margin: 0; }
+
+/* ---------- Responsif ---------- */
+@media (max-width: 40rem) {
+  .hero { padding-top: 3.5rem; }
+
+  .projects a {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .stack { text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  .hero h1 {
+    animation: none;
+    background-size: 100% 100%;
+  }
+}
